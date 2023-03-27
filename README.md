@@ -7,7 +7,9 @@ A library for exploding audio files into banks of samples transposed according t
 
 ## Usage
 
-[Live site](http://bobbi.codes/)
+Includes 3 octaves of the classic Mario Paint samples.
+
+TODO: Allow users to upload their own `wav` files. As long as they are limited to a certain size, I can likely host a large number of community samples.
 
 ## License
 
