@@ -22,15 +22,14 @@
   outputs a copy transposed to pitch n
   following syntax `<f>-n.wav`" 
   [n f] 
-  (str (:out (sh/sh "sox" (str "resources/audio/" f ".wav" )
-                    (str "resources/audio/" f "-" n ".wav")
-                    "pitch" (cents n)))
-                    (str "wrote " f "-" n ".wav" )))
+  (sh/sh "sox" (str "resources/audio/" f ".wav" )
+               (str "resources/audio/" f "-" n ".wav")
+               "pitch" (cents n)))
 
 
 (defn explode! 
   "Takes a `.wav` file and explodes it into a set of
-  transpositions n notes before/after middle C."
+  samples transposed n notes before/after middle C."
   [f n]
   (doseq [note (range (- 60 n) (+ 60 n))]
         (pitch note f)))
