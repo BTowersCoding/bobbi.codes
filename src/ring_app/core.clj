@@ -35,34 +35,26 @@
 
 (defn explode! 
   "Takes a `.wav` file and explodes it into a set of
-  transpositions n notes before/after 60."
+  transpositions n notes before/after middle C."
   [f n]
   (doseq [note (range (- 60 n) (+ 60 n))]
         (pitch note f)))
 
-(def n 60)
-(def f "1")
-
-
 (comment
   (pitch n f)
   (explode! f 16)
-(sh/sh "ls" "resources/audio")
   )
 
 
 (defn audio [f]
-  (str
-  "<div>" f "<audio controls src=\"/" f "\"></audio>"
-  "</div>"))
+  (str "<div>" f "<audio controls src=\"/" f "\"></audio></div>"))
 
 (defn app [req]
   (case (:uri req)
     "/" {:status 200
-         :body "<h1>Homepage</h1>
-                <ul>
-                    <li><a href=\"/sounds\">Sound library</a></li>
-                </ul>"
+         :body "<h1>MECCA Music Platform - by BobbiCodes</h1>
+               <p>The Music Education, Composition, Creation Application</p>
+                <a href=\"/sounds\">Browse sound library</a>"
          :headers {"Content-Type" "text/html; charset=UTF-8"}}
     "/sounds" {:status 200
              :body (str "<html><body>" 
