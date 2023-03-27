@@ -18,19 +18,14 @@
 
 
 (defn pitch
- "Takes an integer and filename (optional)
-  and creates a copy transposed to midi note n.
-  Outputs a file named `<f>-n.wav`" 
-  ([n] 
-  (str (:out (sh/sh "sox" "resources/audio/1.wav" 
-                    (str "resources/audio/1-" n ".wav")
-                    "pitch" (cents n)))
-                    (str "wrote 1-" n ".wav" )))
-  ([n f] 
+ "Takes a midi number and name of .wav file
+  outputs a copy transposed to pitch n
+  following syntax `<f>-n.wav`" 
+  [n f] 
   (str (:out (sh/sh "sox" (str "resources/audio/" f ".wav" )
                     (str "resources/audio/" f "-" n ".wav")
                     "pitch" (cents n)))
-                    (str "wrote " f "-" n ".wav" ))))
+                    (str "wrote " f "-" n ".wav" )))
 
 
 (defn explode! 
