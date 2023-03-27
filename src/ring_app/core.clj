@@ -16,7 +16,6 @@
       (* 100 (- n 60))
       (- (* 100 (- 60 n))))))
 
-
 (defn pitch
  "Takes a midi number and name of .wav file
   outputs a copy transposed to pitch n
@@ -25,7 +24,6 @@
   (sh/sh "sox" (str "resources/audio/" f ".wav" )
                (str "resources/audio/" f "-" n ".wav")
                "pitch" (cents n)))
-
 
 (defn explode! 
   "Takes a `.wav` file and explodes it into a set of
@@ -38,7 +36,6 @@
   (pitch n f)
   (explode! f 16)
   )
-
 
 (defn audio [f]
   (str "<div>" f "<audio controls src=\"/" f "\"></audio></div>"))
@@ -76,5 +73,5 @@
 
 (comment
   (stop-server)
-  )
+)
 
