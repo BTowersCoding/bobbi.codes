@@ -1,6 +1,7 @@
 # bobbi.codes
 
 MECCA Music Platform - by BobbiCodes
+
 The Music Education, Composition, Creation Application
 
 A library for exploding audio files into banks of samples transposed according to the equal tempered chromatic scale. Shifts the sample pitches without affecting the duration (tempo) using the WSOLA algorithm. 
